@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta de consumo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+<body class="container py-3">
+    <header class="p-4 mb-4 bg-info text-dark rounded">
+        <h1>Encuesta sobre el uso de electrodomésticos</h1>
+        <p>Ayúdanos a descubrir cómo los hábitos afectan la factura de la luz.</p>
+        <nav class="nav nav-pills">
+            <a class="nav-link text-dark" href="index.html">Inicio</a>
+            <a class="nav-link text-dark" href="equipos.html">Electrodomésticos</a>
+            <a class="nav-link text-dark" href="registro.html">Registrar aparato</a>
+            <a class="nav-link text-dark" href="mi-factura.html">Mi Factura</a>
+            <a class="nav-link text-dark fw-bold" href="encuesta.html">Encuesta</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- FORMULARIO TOTALMENTE NUEVO -->
+        <form action="encuesta.html" method="get">
+            
+            <!-- GRUPO 1 -->
+            <fieldset class="border rounded p-3 mb-3 bg-white">
+                <legend class="float-none w-auto px-2 fs-5 fw-bold">1. Información del hogar</legend>
+                
+                <div class="mb-3">
+                    <label for="nombre_encuestado" class="form-label">Nombre de quien responde:</label>
+                    <input class="form-control" type="text" id="nombre_encuestado" name="nombre_encuestado" required placeholder="Escribe tu nombre completo">
+                </div>
+
+                <div class="mb-3">
+                    <label for="correo_contacto" class="form-label">Correo electrónico:</label>
+                    <input class="form-control" type="email" id="correo_contacto" name="correo_contacto" required placeholder="ejemplo@correo.com"> 
+                </div>
+
+                <div class="mb-3">
+                    <label for="estrato" class="form-label">¿Cuál es el estrato de tu vivienda?</label>
+                    <select class="form-select" id="estrato" name="estrato" required>
+                        <option value="" selected disabled>Selecciona una opción...</option>
+                        <option value="1">Estrato 1</option>
+                        <option value="2">Estrato 2</option>
+                        <option value="3">Estrato 3</option>
+                        <option value="4">Estrato 4</option>
+                        <option value="5">Estrato 5</option>
+                        <option value="6">Estrato 6</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <!-- GRUPO 2 -->
+            <fieldset class="border rounded p-3 mb-3 bg-white">
+                <legend class="float-none w-auto px-2 fs-5 fw-bold">2. Hábitos y aparatos</legend>
+                
+                <div class="mb-3">
+                    <label for="cantidad_tv" class="form-label">¿Cuántos televisores hay en tu casa? (Entre 1 y 5)</label>
+                    <input class="form-control" type="number" id="cantidad_tv" name="cantidad_tv" min="1" max="5" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="horas_aire" class="form-label">En una escala del 1 al 10, ¿qué tanto usan el ventilador o aire acondicionado?</label>
+                    <div class="d-flex align-items-center">
+                        <input class="form-range me-3" type="range" id="horas_aire" name="horas_aire" min="1" max="10" step="1" value="5" oninput="this.nextElementSibling.value = this.value" required>
+                        <output class="badge bg-info text-dark fs-6">5</output>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <p class="mb-1 fw-bold">¿Cuál de estos aparatos usan con más frecuencia en tu familia?</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" id="opcion_micro" name="frecuencia" value="microondas" checked>
+                        <label class="form-check-label" for="opcion_micro">Horno Microondas</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" id="opcion_plancha" name="frecuencia" value="plancha">
+                        <label class="form-check-label" for="opcion_plancha">Plancha de ropa</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" id="opcion_licuadora" name="frecuencia" value="licuadora">
+                        <label class="form-check-label" for="opcion_licuadora">Licuadora</label>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <p class="mb-1 fw-bold">Marca las acciones que realizan para ahorrar energía:</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="accion_led" name="acciones" value="bombillos_led">
+                        <label class="form-check-label" for="accion_led">Usamos bombillos LED en toda la casa</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="accion_desconectar" name="acciones" value="desconectar">
+                        <label class="form-check-label" for="accion_desconectar">Desconectamos los cargadores y regletas</label>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="fecha_encuesta" class="form-label">Fecha en que se realiza la encuesta:</label>
+                    <input class="form-control" type="date" id="fecha_encuesta" name="fecha_encuesta" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="sugerencias" class="form-label">¿Qué otro consejo de ahorro le darías a los demás?</label>
+                    <textarea class="form-control" id="sugerencias" name="sugerencias" rows="3" placeholder="Escribe tu consejo aquí..."></textarea>
+                </div>
+            </fieldset>
+
+            <!-- BOTONES NORMALES (Sin el falso modal de tu compañero) -->
+            <button class="btn btn-info text-dark fw-bold" type="submit">Enviar Respuestas</button>
+            <button class="btn btn-secondary" type="reset">Limpiar Formulario</button>
+        </form>
+    </main>
+
+    <footer class="mt-5 text-muted border-top pt-3">
+        <p>Ingeniería Web I · IU Digital de Antioquia · 2026-2</p>
+    </footer>
+</body>
+</html>
